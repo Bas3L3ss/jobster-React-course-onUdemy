@@ -17,7 +17,7 @@ const Register = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { isLoading, user } = useSelector((store) => store.user);
-
+  const [values, setValues] = useState(initialState);
   useEffect(() => {
     if (user) {
       setTimeout(() => {
@@ -25,7 +25,6 @@ const Register = () => {
       }, 3000);
     }
   }, [user, navigate]);
-  const [values, setValues] = useState(initialState);
 
   const toggleMember = () => {
     setValues({ ...values, isMember: !values.isMember });
@@ -81,6 +80,18 @@ const Register = () => {
 
         <button type="submit" className="btn btn-block" disabled={isLoading}>
           {isLoading ? "...loading" : "submit"}
+        </button>
+        <button
+          type="button"
+          className="btn btn-block btn-hipster"
+          disabled={isLoading}
+          onClick={() => {
+            dispatch(
+              loginUser({ email: "testUser@test.com", password: "secret" })
+            );
+          }}
+        >
+          {isLoading ? "loading..." : "demo"}
         </button>
         <p>
           {values.isMember ? "Not a member yet?" : "Already a member?"}
