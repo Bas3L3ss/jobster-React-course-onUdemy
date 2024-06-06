@@ -1,10 +1,10 @@
 import { JobsContainer, SearchContainer } from "../../components";
 
-const AllJobs = () => {
+const AllJobs = ({ queryClient }) => {
   return (
     <>
       <SearchContainer />
-      <JobsContainer />
+      <JobsContainer queryClient={queryClient} />
     </>
   );
 };

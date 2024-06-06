@@ -6,7 +6,7 @@ import Loading from "./Loading";
 import { getAllJobs } from "../features/allJobs/allJobSlice";
 import PageBtnContainer from "./PageBtnContainer";
 
-const JobsContainer = () => {
+const JobsContainer = ({ queryClient }) => {
   const {
     jobs,
     isLoading,
@@ -21,7 +21,7 @@ const JobsContainer = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllJobs());
+    dispatch(getAllJobs(queryClient));
     // eslint-disable-next-line
   }, [page, search, searchStatus, searchType, sort]);
 

@@ -4,6 +4,7 @@ import { getAllJobsThunk, showStatsThunk } from "./allJobsThunk";
 
 export const getAllJobs = createAsyncThunk("allJobs/getJobs", getAllJobsThunk);
 export const showStats = createAsyncThunk("allJobs/showStats", showStatsThunk);
+
 const initialFiltersState = {
   search: "",
   searchStatus: "all",

@@ -3,15 +3,14 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { showStats } from "../../features/allJobs/allJobSlice";
 import { ChartsContainer, Loading, StatsContainer } from "../../components";
-const Stats = () => {
+const Stats = ({ queryClient }) => {
   const { isLoading, monthlyApplications } = useSelector(
     (store) => store.allJobs
   );
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(showStats());
-    // eslint - disable - next - line;
+    dispatch(showStats(queryClient));
   }, []);
 
   if (isLoading) {
